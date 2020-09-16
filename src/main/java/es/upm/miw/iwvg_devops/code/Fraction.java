@@ -59,8 +59,8 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
-    public Fraction multiplication(Fraction f1){
-        return new Fraction(f1.getNumerator()*this.getNumerator(),f1.getDenominator()*this.getDenominator());
+    public Fraction multiplication(Fraction f1) {
+        return new Fraction(f1.getNumerator() * this.getNumerator(), f1.getDenominator() * this.getDenominator());
     }
 
     @Override

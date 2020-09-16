@@ -34,32 +34,38 @@ public class Searches {
                 .filter(user -> user.getFractions().stream()
                         .anyMatch(fraction -> fraction.getNumerator() < fraction.getDenominator()))
                 .map(User::getFamilyName)
-                .map(initial -> initial.substring(0,1));
+                .map(initial -> initial.substring(0, 1));
     }
 
     public Stream<String> findUserIdByAnyProperFraction() {
         return new UsersDatabase().findAll()
-                .filter(user-> user.getFractions().stream()
+                .filter(user -> user.getFractions().stream()
                         .anyMatch(fraction -> fraction.getNumerator() < fraction.getDenominator()))
                 .map(User::getId);
     }
 
     public Fraction findFractionMultiplicationByUserFamilyName(String familyName, Fraction fraction) {
         return new UsersDatabase().findAll()
-                .filter(user->user.getFamilyName().equals(familyName))
+                .filter(user -> user.getFamilyName().equals(familyName))
                 .flatMap(user -> user.getFractions().stream())
-                .reduce(new Fraction(1,1), Fraction::multiplication);
+                .reduce(new Fraction(1, 1), Fraction::multiplication);
     }
 
-    public Fraction findFirstFractionDivisionByUserId(String id) { return null; }
+    public Fraction findFirstFractionDivisionByUserId(String id) {
+        return null;
+    }
 
     public Double findFirstDecimalFractionByUserName(String name) {
         return null;
     }
 
-    public Stream<String> findUserIdByAllProperFraction() { return Stream.empty(); }//???????
+    public Stream<String> findUserIdByAllProperFraction() {
+        return Stream.empty();
+    }//???????
 
-    public Stream<Double> findDecimalImproperFractionByUserName(String name) { return Stream.empty(); }
+    public Stream<Double> findDecimalImproperFractionByUserName(String name) {
+        return Stream.empty();
+    }
 
     public Fraction findFirstProperFractionByUserId(String id) {
         return null;
